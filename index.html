@@ -1,173 +1,138 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OBS Logo</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>OBS Logo</title>
 
-  <style>
-    /* ✅ SF Pro Display Bold (link GitHub Pages của mày) */
-    @font-face{
-      font-family:"SF Pro Display";
-      src:url("https://ruth742.github.io/sfpro-font/SFPRODISPLAYBOLD.OTF") format("opentype");
-      font-weight:700;
-      font-style:normal;
-    }
+<style>
+@font-face{
+  font-family:"SF Pro Display";
+  src:url("https://ruth742.github.io/sfpro-font/SFPRODISPLAYBOLD.OTF") format("opentype");
+  font-weight:700;
+}
 
-    html,body{
-      margin:0;
-      height:100%;
-      background: transparent;
-      overflow:hidden;
-    }
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  background:transparent;
+  overflow:hidden;
+}
 
-    .stage{
-      width:100vw;
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: transparent;
-    }
+svg{
+  width:100%;
+  height:100%;
+  text-rendering:geometricPrecision;
+  shape-rendering:geometricPrecision;
+}
 
-    svg{
-      width:100vw;
-      height:100vh;
-      shape-rendering: geometricPrecision;
-      text-rendering: geometricPrecision;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+.text{
+  font-family:"SF Pro Display",system-ui;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-anchor:middle;
+  paint-order:stroke fill;
+}
 
-    /* ===== TEXT BASE ===== */
-    .t{
-      font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
-      font-weight:700;
-      paint-order: stroke fill;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      letter-spacing: 0.12em;
-    }
+/* ===== MẶT CHỮ VÀNG ĐỒNG ===== */
+.fill{
+  fill:url(#gold);
+  stroke:rgba(120,60,10,.4);
+  stroke-width:1.2px;
+  filter:url(#shadow3d);
+}
 
-    /* ===== MẶT CHỮ (VÀNG ĐỒNG + SẮC) ===== */
-    .fillText{
-      fill: url(#bronzeFill);
-      stroke: rgba(120, 60, 10, .35); /* viền mỏng cho sắc nét */
-      stroke-width: 1.2px;
+/* ===== NEON TĨNH ===== */
+.neon{
+  fill:none;
+  stroke:#ffd68a;
+  stroke-width:6;
+  filter:url(#neonGlow);
+}
 
-      /* 3D nổi gọn, blur rất ít */
-      filter: url(#extrudeSharp);
-    }
+/* ===== VIỀN LED TĨNH ===== */
+.led{
+  fill:none;
+  stroke:url(#ledGrad);
+  stroke-width:7;
+  filter:url(#ledGlow);
+}
 
-    /* ===== NEON VIỀN TĨNH ===== */
-    .neonOutline{
-      fill: transparent;
-      stroke: rgba(255, 195, 105, .95);
-      stroke-width: 6px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      filter: url(#neonGlowSoft);
-      opacity: .9;
-    }
-
-    /* ===== VIỀN NEON TĨNH (lớp thứ 2, thay cho “LED chạy”) ===== */
-    .ledStatic{
-      fill: transparent;
-      stroke: url(#ledStroke);
-      stroke-width: 7px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-
-      /* ✅ KHÔNG dash, KHÔNG animation */
-      stroke-dasharray: none;
-      animation: none;
-
-      filter: url(#ledGlowSoft);
-      opacity: .95;
-    }
-
-    /* SIZE */
-    .top{ font-size: 150px; }
-    .bottom{ font-size: 110px; letter-spacing: 0.16em; }
-
-    @media (max-width: 900px){
-      .top{ font-size: 13vw; }
-      .bottom{ font-size: 9.2vw; }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="stage">
-    <svg viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid meet" aria-label="OBS Logo">
-      <defs>
-        <!-- Fill vàng đồng -->
-        <linearGradient id="bronzeFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stop-color="#fff2c8"/>
-          <stop offset="28%"  stop-color="#f2c67a"/>
-          <stop offset="60%"  stop-color="#d79235"/>
-          <stop offset="100%" stop-color="#a3621a"/>
-        </linearGradient>
+<svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
 
-        <!-- Stroke neon vàng-cam -->
-        <linearGradient id="ledStroke" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"   stop-color="#fff3b0"/>
-          <stop offset="35%"  stop-color="#ffd35a"/>
-          <stop offset="70%"  stop-color="#ff9b2a"/>
-          <stop offset="100%" stop-color="#fff3b0"/>
-        </linearGradient>
+<defs>
+  <!-- Gold fill -->
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fff3c8"/>
+    <stop offset="40%" stop-color="#f5c46d"/>
+    <stop offset="70%" stop-color="#d18a2e"/>
+    <stop offset="100%" stop-color="#9a5a18"/>
+  </linearGradient>
 
-        <!-- 3D nổi SẮC: offset rõ, blur rất ít -->
-        <filter id="extrudeSharp" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="rgba(200,85,18,.95)"/>
-          <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(170,65,12,.92)"/>
-          <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="rgba(135,48,9,.90)"/>
-          <feDropShadow dx="0" dy="8" stdDeviation="0.8" flood-color="rgba(0,0,0,.55)"/>
-        </filter>
+  <!-- LED gradient -->
+  <linearGradient id="ledGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#fff3b0"/>
+    <stop offset="50%" stop-color="#ffae32"/>
+    <stop offset="100%" stop-color="#fff3b0"/>
+  </linearGradient>
 
-        <!-- Glow neon rất nhẹ (blur ít) -->
-        <filter id="neonGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="rgba(255,220,140,.9)"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="rgba(255,150,60,.55)"/>
-        </filter>
+  <!-- 3D shadow -->
+  <filter id="shadow3d">
+    <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="#b7651b"/>
+    <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="#8f4b14"/>
+    <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="#6b340d"/>
+    <feDropShadow dx="0" dy="10" stdDeviation="2" flood-color="rgba(0,0,0,.5)"/>
+  </filter>
 
-        <!-- Glow cho viền neon lớp 2 (blur ít) -->
-        <filter id="ledGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="0" stdDeviation="0.6" flood-color="rgba(255,230,160,.95)"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="rgba(255,150,60,.55)"/>
-        </filter>
-      </defs>
+  <!-- Neon glow -->
+  <filter id="neonGlow">
+    <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ffd68a"/>
+    <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#ff9c2a"/>
+  </filter>
 
-      <!-- TOP -->
-      <text id="topNeon" class="t neonOutline top" x="800" y="210">SUNWIN.CLUB</text>
-      <text id="topLed"  class="t ledStatic   top" x="800" y="210">SUNWIN.CLUB</text>
-      <text id="topFill" class="t fillText    top" x="800" y="210">SUNWIN.CLUB</text>
+  <!-- LED glow -->
+  <filter id="ledGlow">
+    <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#fff2c0"/>
+    <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#ff9c2a"/>
+  </filter>
+</defs>
 
-      <!-- BOTTOM -->
-      <text id="botNeon" class="t neonOutline bottom" x="800" y="380">GEMWIN.FUN</text>
-      <text id="botLed"  class="t ledStatic   bottom" x="800" y="380">GEMWIN.FUN</text>
-      <text id="botFill" class="t fillText    bottom" x="800" y="380">GEMWIN.FUN</text>
-    </svg>
-  </div>
+<!-- ===== TOP ===== -->
+<g>
+  <text id="topNeon" class="text neon" x="50%" y="45%" font-size="150">SUNWIN.CLUB</text>
+  <text id="topLed"  class="text led"  x="50%" y="45%" font-size="150">SUNWIN.CLUB</text>
+  <text id="topFill" class="text fill" x="50%" y="45%" font-size="150">SUNWIN.CLUB</text>
+</g>
 
-  <script>
-    // Đổi chữ qua URL:
-    // ?top=SUNWIN.CLUB&bottom=GEMWIN.FUN
-    // ?top=G1&bottom=LIVE
-    const p = new URLSearchParams(window.location.search);
-    const topText = p.get("top");
-    const bottomText = p.get("bottom");
+<!-- ===== BOTTOM ===== -->
+<g>
+  <text id="botNeon" class="text neon" x="50%" y="60%" font-size="110" letter-spacing="0.16em">GEMWIN.FUN</text>
+  <text id="botLed"  class="text led"  x="50%" y="60%" font-size="110" letter-spacing="0.16em">GEMWIN.FUN</text>
+  <text id="botFill" class="text fill" x="50%" y="60%" font-size="110" letter-spacing="0.16em">GEMWIN.FUN</text>
+</g>
 
-    function setLine(prefix, value){
-      const v = decodeURIComponent(value).trim();
-      if(!v) return;
-      document.getElementById(prefix + "Neon").textContent = v;
-      document.getElementById(prefix + "Led").textContent  = v;
-      document.getElementById(prefix + "Fill").textContent = v;
-    }
+</svg>
 
-    if(topText) setLine("top", topText);
-    if(bottomText) setLine("bot", bottomText);
-  </script>
+<script>
+const p = new URLSearchParams(location.search);
+const t = p.get("top");
+const b = p.get("bottom");
+
+function set(id,val){
+  if(!val) return;
+  document.getElementById(id+"Neon").textContent=val;
+  document.getElementById(id+"Led").textContent=val;
+  document.getElementById(id+"Fill").textContent=val;
+}
+
+set("top", t || "SUNWIN.CLUB");
+set("bot", b || "GEMWIN.FUN");
+</script>
+
 </body>
 </html>
