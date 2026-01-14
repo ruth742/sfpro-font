@@ -79,20 +79,26 @@
       color: transparent;
       -webkit-text-fill-color: transparent;
 
-      -webkit-text-stroke: 2.2px rgba(255, 140, 35, .65);
+      -webkit-text-stroke: 2.2px rgba(255, 140, 35, .85);
 
 text-shadow:
+  /* viền sáng trên mặt chữ (highlight) */
+  0 -2px 2px rgba(255,255,220,.95),
+  0 -1px 0 rgba(255,240,200,.9),
+
+  /* extrude khối 3D dày */
   0 1px 0 rgba(232,106,22,.98),
   0 2px 0 rgba(224, 96,18,.96),
-  0 3px 0 rgba(205, 85,15,.94),
-  0 4px 0 rgba(190, 75,14,.92),
-  0 5px 0 rgba(170, 65,12,.90),
-  0 6px 0 rgba(150, 55,10,.88),
-  0 7px 0 rgba(130, 45, 8,.85),
+  0 3px 0 rgba(210, 90,16,.95),
+  0 4px 0 rgba(195, 80,14,.94),
+  0 5px 0 rgba(180, 70,12,.93),
+  0 6px 0 rgba(165, 60,10,.92),
+  0 7px 0 rgba(150, 50, 8,.90),
+  0 8px 0 rgba(130, 45, 7,.88),
 
-  /* bóng đổ */
-  0 6px 10px rgba(0,0,0,.75),
-  0 12px 20px rgba(0,0,0,.55);
+  /* bóng đổ gọn, đậm */
+  0 8px 14px rgba(0,0,0,.80),
+  0 14px 28px rgba(0,0,0,.55);
     }
 
     #lineTop .text{ font-size: 120px; }
