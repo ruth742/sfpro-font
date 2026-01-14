@@ -70,17 +70,21 @@
     }
 
     /* ===== LED CHẠY (dash) ===== */
-    .ledRun{
-      fill: transparent;
-      stroke: url(#ledStroke);
-      stroke-width: 7px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      stroke-dasharray: 10 20;         /* hạt LED nhỏ hơn */
-      animation: dashMove 1.1s linear infinite;
-      filter: url(#ledGlowSoft);       /* glow nhẹ */
-      opacity: 1;
-    }
+.ledRun{
+  fill: transparent;
+  stroke: url(#ledStroke);
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+
+  /* ❌ bỏ dash và animation */
+  stroke-dasharray: none;
+  animation: none;
+
+  /* giữ glow nhẹ */
+  filter: url(#ledGlowSoft);
+  opacity: .95;
+}
 
     @keyframes dashMove{
       from { stroke-dashoffset: 0; }
