@@ -6,6 +6,7 @@
   <title>OBS Logo</title>
 
   <style>
+    /* ✅ SF Pro Display Bold (link GitHub Pages của mày) */
     @font-face{
       font-family:"SF Pro Display";
       src:url("https://ruth742.github.io/sfpro-font/SFPRODISPLAYBOLD.OTF") format("opentype");
@@ -48,20 +49,20 @@
       letter-spacing: 0.12em;
     }
 
-    /* ===== FILL (SẮC NÉT) ===== */
+    /* ===== MẶT CHỮ (VÀNG ĐỒNG + SẮC) ===== */
     .fillText{
       fill: url(#bronzeFill);
-      stroke: rgba(120, 60, 10, .35); /* viền rất mỏng để sắc */
+      stroke: rgba(120, 60, 10, .35); /* viền mỏng cho sắc nét */
       stroke-width: 1.2px;
 
-      /* 3D + bóng gọn, KHÔNG blur nhiều */
+      /* 3D nổi gọn, blur rất ít */
       filter: url(#extrudeSharp);
     }
 
-    /* ===== NEON VIỀN TĨNH (nhẹ, không làm nhòe mặt chữ) ===== */
+    /* ===== NEON VIỀN TĨNH ===== */
     .neonOutline{
       fill: transparent;
-      stroke: rgba(255, 190, 95, .95);
+      stroke: rgba(255, 195, 105, .95);
       stroke-width: 6px;
       stroke-linejoin: round;
       stroke-linecap: round;
@@ -69,27 +70,21 @@
       opacity: .9;
     }
 
-    /* ===== LED CHẠY (dash) ===== */
-.ledRun{
-  fill: transparent;
-  stroke: url(#ledStroke);
-  stroke-width: 7px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+    /* ===== VIỀN NEON TĨNH (lớp thứ 2, thay cho “LED chạy”) ===== */
+    .ledStatic{
+      fill: transparent;
+      stroke: url(#ledStroke);
+      stroke-width: 7px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
 
-  /* ❌ bỏ dash và animation */
-  stroke-dasharray: none;
-  animation: none;
+      /* ✅ KHÔNG dash, KHÔNG animation */
+      stroke-dasharray: none;
+      animation: none;
 
-  /* giữ glow nhẹ */
-  filter: url(#ledGlowSoft);
-  opacity: .95;
-}
-    @keyframes dashMove{
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: -360; }
-}
-
+      filter: url(#ledGlowSoft);
+      opacity: .95;
+    }
 
     /* SIZE */
     .top{ font-size: 150px; }
@@ -114,7 +109,7 @@
           <stop offset="100%" stop-color="#a3621a"/>
         </linearGradient>
 
-        <!-- Stroke LED -->
+        <!-- Stroke neon vàng-cam -->
         <linearGradient id="ledStroke" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%"   stop-color="#fff3b0"/>
           <stop offset="35%"  stop-color="#ffd35a"/>
@@ -122,40 +117,43 @@
           <stop offset="100%" stop-color="#fff3b0"/>
         </linearGradient>
 
-        <!-- 3D nổi SẮC: offset rõ, blur rất nhỏ -->
-<filter id="extrudeSharp" x="-40%" y="-40%" width="180%" height="180%">
-  <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="rgba(200,85,18,.95)"/>
-  <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(170,65,12,.92)"/>
-  <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="rgba(135,48,9,.90)"/>
-  <feDropShadow dx="0" dy="8" stdDeviation="0.8" flood-color="rgba(0,0,0,.55)"/>
-</filter>
+        <!-- 3D nổi SẮC: offset rõ, blur rất ít -->
+        <filter id="extrudeSharp" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="rgba(200,85,18,.95)"/>
+          <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(170,65,12,.92)"/>
+          <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="rgba(135,48,9,.90)"/>
+          <feDropShadow dx="0" dy="8" stdDeviation="0.8" flood-color="rgba(0,0,0,.55)"/>
+        </filter>
 
+        <!-- Glow neon rất nhẹ (blur ít) -->
+        <filter id="neonGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="rgba(255,220,140,.9)"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="rgba(255,150,60,.55)"/>
+        </filter>
 
-        <!-- Glow neon nhẹ (giảm blur mạnh để không nhòe) -->
-<filter id="neonGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
-  <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="rgba(255,220,140,.9)"/>
-  <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="rgba(255,150,60,.55)"/>
-</filter>
-
-        <!-- Glow LED nhẹ -->
-<filter id="ledGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
-  <feDropShadow dx="0" dy="0" stdDeviation="0.6" flood-color="rgba(255,230,160,.95)"/>
-  <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="rgba(255,150,60,.55)"/>
-</filter>
+        <!-- Glow cho viền neon lớp 2 (blur ít) -->
+        <filter id="ledGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0" stdDeviation="0.6" flood-color="rgba(255,230,160,.95)"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="rgba(255,150,60,.55)"/>
+        </filter>
+      </defs>
 
       <!-- TOP -->
       <text id="topNeon" class="t neonOutline top" x="800" y="210">SUNWIN.CLUB</text>
-      <text id="topLed"  class="t ledRun      top" x="800" y="210">SUNWIN.CLUB</text>
+      <text id="topLed"  class="t ledStatic   top" x="800" y="210">SUNWIN.CLUB</text>
       <text id="topFill" class="t fillText    top" x="800" y="210">SUNWIN.CLUB</text>
 
       <!-- BOTTOM -->
       <text id="botNeon" class="t neonOutline bottom" x="800" y="380">GEMWIN.FUN</text>
-      <text id="botLed"  class="t ledRun      bottom" x="800" y="380">GEMWIN.FUN</text>
+      <text id="botLed"  class="t ledStatic   bottom" x="800" y="380">GEMWIN.FUN</text>
       <text id="botFill" class="t fillText    bottom" x="800" y="380">GEMWIN.FUN</text>
     </svg>
   </div>
 
   <script>
+    // Đổi chữ qua URL:
+    // ?top=SUNWIN.CLUB&bottom=GEMWIN.FUN
+    // ?top=G1&bottom=LIVE
     const p = new URLSearchParams(window.location.search);
     const topText = p.get("top");
     const bottomText = p.get("bottom");
