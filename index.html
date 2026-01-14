@@ -119,27 +119,25 @@
         </linearGradient>
 
         <!-- 3D nổi SẮC: offset rõ, blur rất nhỏ -->
-        <filter id="extrudeSharp" x="-40%" y="-40%" width="180%" height="180%">
-          <!-- khối đẩy xuống (không blur) -->
-          <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="rgba(200,85,18,.95)"/>
-          <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(170,65,12,.90)"/>
-          <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="rgba(135,48, 9,.88)"/>
-          <!-- bóng gọn (blur nhẹ) -->
-          <feDropShadow dx="0" dy="10" stdDeviation="2.2" flood-color="rgba(0,0,0,.55)"/>
-        </filter>
+<filter id="extrudeSharp" x="-40%" y="-40%" width="180%" height="180%">
+  <feDropShadow dx="0" dy="2" stdDeviation="0" flood-color="rgba(200,85,18,.95)"/>
+  <feDropShadow dx="0" dy="4" stdDeviation="0" flood-color="rgba(170,65,12,.92)"/>
+  <feDropShadow dx="0" dy="6" stdDeviation="0" flood-color="rgba(135,48,9,.90)"/>
+  <feDropShadow dx="0" dy="8" stdDeviation="0.8" flood-color="rgba(0,0,0,.55)"/>
+</filter>
+
 
         <!-- Glow neon nhẹ (giảm blur mạnh để không nhòe) -->
-        <filter id="neonGlowSoft" x="-50%" y="-50%" width="200%" height="200%">
-          <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="rgba(255,210,120,.75)"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="4.0" flood-color="rgba(255,140,40,.40)"/>
-        </filter>
+<filter id="neonGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
+  <feDropShadow dx="0" dy="0" stdDeviation="0.8" flood-color="rgba(255,220,140,.9)"/>
+  <feDropShadow dx="0" dy="0" stdDeviation="1.8" flood-color="rgba(255,150,60,.55)"/>
+</filter>
 
         <!-- Glow LED nhẹ -->
-        <filter id="ledGlowSoft" x="-50%" y="-50%" width="200%" height="200%">
-          <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="rgba(255,230,150,.9)"/>
-          <feDropShadow dx="0" dy="0" stdDeviation="3.5" flood-color="rgba(255,140,40,.45)"/>
-        </filter>
-      </defs>
+<filter id="ledGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
+  <feDropShadow dx="0" dy="0" stdDeviation="0.6" flood-color="rgba(255,230,160,.95)"/>
+  <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="rgba(255,150,60,.55)"/>
+</filter>
 
       <!-- TOP -->
       <text id="topNeon" class="t neonOutline top" x="800" y="210">SUNWIN.CLUB</text>
