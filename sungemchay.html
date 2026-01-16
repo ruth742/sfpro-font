@@ -20,22 +20,23 @@ html,body{
   overflow:hidden;
 }
 
-/* ===== TICKER ở giữa ===== */
+/* ===== TICKER Ở GIỮA ===== */
 .ticker{
   position:fixed;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  width:min(1600px, 95vw);
+  width:95vw;
+  max-width:1600px;
   height:72px;
   border-radius:18px;
 
-  /* nền xanh nhẹ + xuyên thấu */
-  background:rgba(70, 170, 255, 0.22);
+  /* nền tím nhạt xuyên thấu */
+  background:rgba(170, 140, 255, 0.28);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-  border:1px solid rgba(255,255,255,.28);
+  border:1px solid rgba(255,255,255,.35);
   overflow:hidden;
   pointer-events:none;
 }
@@ -45,25 +46,28 @@ html,body{
   position:absolute;
   inset:0;
   border-radius:18px;
-  background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.22),
+    rgba(255,255,255,0)
+  );
 }
 
-/* track chạy liên tục */
+/* ===== TRACK CHẠY ===== */
 .track{
-  position:absolute;
-  inset:0;
   display:flex;
   align-items:center;
-  gap:80px;
+  width:max-content;
   will-change:transform;
-  animation: marquee 12s linear infinite; /* tốc độ chạy */
+  animation: marquee 14s linear infinite;
 }
 
-/* mỗi đoạn (nhân đôi để chạy vô hạn) */
+/* ===== SEGMENT ===== */
 .segment{
   display:flex;
   align-items:center;
   white-space:nowrap;
+  padding-right:120px;
 
   font-family:"SF Pro Display",system-ui;
   font-weight:700;
@@ -83,17 +87,17 @@ html,body{
   background-clip:text;
   color:transparent;
 
-  -webkit-text-stroke: 1.1px rgba(120,80,10,.55);
+  -webkit-text-stroke:1.1px rgba(120,80,10,.55);
 }
 
-/* phần domain màu xanh lá */
+/* domain xanh lá */
 .domain{
-  color:#20c15a;                 /* xanh lá */
-  -webkit-text-stroke: 1px rgba(0,80,30,.55);
+  color:#20c15a;
   background:none;
+  -webkit-text-stroke:1px rgba(0,80,30,.55);
 }
 
-/* chạy mượt: 2 segment giống nhau -> dịch đúng 50% */
+/* ===== ANIMATION CHUẨN KHÔNG GIẬT ===== */
 @keyframes marquee{
   0%   { transform:translateX(0); }
   100% { transform:translateX(-50%); }
@@ -103,7 +107,7 @@ html,body{
 @media (max-width:900px){
   .ticker{ height:60px; border-radius:14px; }
   .ticker::before{ border-radius:14px; }
-  .segment{ font-size:26px; }
+  .segment{ font-size:26px; padding-right:80px; }
 }
 </style>
 </head>
@@ -112,12 +116,12 @@ html,body{
 
 <div class="ticker">
   <div class="track">
-    <!-- segment 1 -->
+    <!-- BẢN 1 -->
     <div class="segment">
       Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span> và ✅<span class="domain">GEMWIN.TOP</span>
     </div>
 
-    <!-- segment 2 (copy để chạy vô hạn) -->
+    <!-- BẢN 2 (COPY Y HỆT – BẮT BUỘC) -->
     <div class="segment" aria-hidden="true">
       Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span> và ✅<span class="domain">GEMWIN.TOP</span>
     </div>
