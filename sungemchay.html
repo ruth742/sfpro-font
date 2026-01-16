@@ -12,6 +12,12 @@
   font-weight:700;
 }
 
+:root{
+  --ticker-h: 92px;        /* NỀN CAO HƠN */
+  --font-size: 42px;       /* CHỮ TO HƠN */
+  --pad-right: 140px;      /* khoảng cách lặp */
+}
+
 html,body{
   margin:0;
   width:100%;
@@ -26,16 +32,16 @@ html,body{
   top:50%;
   transform:translate(-50%,-50%);
   width:95vw;
-  max-width:1600px;
-  height:72px;
-  border-radius:18px;
+  max-width:1700px;
+  height:var(--ticker-h);
+  border-radius:22px;
 
   /* tím đậm + xuyên thấu */
-  background:rgba(120, 90, 200, 0.45);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background:rgba(120, 90, 200, 0.52);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 
-  border:1px solid rgba(255,255,255,.35);
+  border:1px solid rgba(255,255,255,.38);
   overflow:hidden;
   pointer-events:none;
 }
@@ -44,11 +50,10 @@ html,body{
   content:"";
   position:absolute;
   inset:0;
-  border-radius:18px;
+  border-radius:22px;
   background:linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0));
 }
 
-/* viewport chứa track */
 .viewport{
   position:relative;
   height:100%;
@@ -56,7 +61,6 @@ html,body{
   overflow:hidden;
 }
 
-/* track chạy */
 .track{
   position:absolute;
   left:0;
@@ -69,19 +73,18 @@ html,body{
   transform:translate3d(0,0,0);
 }
 
-/* 1 item */
 .item{
   display:flex;
   align-items:center;
   height:100%;
   white-space:nowrap;
-  padding-right:120px;
+  padding-right:var(--pad-right);
 
   font-family:"SF Pro Display",system-ui;
   font-weight:700;
-  font-size:34px;
-  letter-spacing:0.04em;
-  line-height:72px;
+  font-size:var(--font-size);
+  letter-spacing:0.03em;
+  line-height:var(--ticker-h);
 
   /* vàng gold */
   background:linear-gradient(
@@ -96,21 +99,25 @@ html,body{
   background-clip:text;
   color:transparent;
 
-  -webkit-text-stroke:1.1px rgba(120,80,10,.55);
+  -webkit-text-stroke:1.2px rgba(120,80,10,.55);
 }
 
-/* domain TRẮNG TINH */
+/* domain TRẮNG */
 .domain{
   color:#ffffff;
   background:none;
-  -webkit-text-stroke: 0px transparent;
+  -webkit-text-stroke:0px transparent;
 }
 
 /* mobile */
 @media (max-width:900px){
-  .ticker{ height:60px; border-radius:14px; }
-  .ticker::before{ border-radius:14px; }
-  .item{ font-size:26px; line-height:60px; padding-right:80px; }
+  :root{
+    --ticker-h: 72px;
+    --font-size: 30px;
+    --pad-right: 100px;
+  }
+  .ticker{ border-radius:16px; }
+  .ticker::before{ border-radius:16px; }
 }
 </style>
 </head>
@@ -121,9 +128,8 @@ html,body{
   <div class="viewport">
     <div class="track" id="track">
       <div class="item" id="unit">
-        Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span>  •  ✅<span class="domain">GEMWIN.TOP</span>
+        Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span> ✅<span class="domain">GEMWIN.TOP</span>
       </div>
-      <!-- JS sẽ clone thêm để chạy mượt -->
     </div>
   </div>
 </div>
@@ -133,18 +139,16 @@ html,body{
   const track = document.getElementById('track');
   const unit  = document.getElementById('unit');
 
-  // Tốc độ: px/giây (tăng = nhanh hơn)
-  const SPEED = 140;
+  // CHẠY CHẬM HƠN: px/giây (giảm = chậm hơn)
+  const SPEED = 80;
 
   function buildClones(){
-    // Xóa clone cũ
     [...track.querySelectorAll('.clone')].forEach(n => n.remove());
 
-    // Clone đủ để phủ > 2 lần chiều rộng viewport (tránh hở)
     const viewportWidth = track.parentElement.clientWidth;
     let totalWidth = unit.getBoundingClientRect().width;
 
-    while (totalWidth < viewportWidth * 2) {
+    while (totalWidth < viewportWidth * 2.2) {
       const c = unit.cloneNode(true);
       c.classList.add('clone');
       track.appendChild(c);
@@ -169,22 +173,18 @@ html,body{
 
     x -= SPEED * dt;
 
-    // Khi đã trượt qua đúng 1 "unit", reset x (không giật)
     if (x <= -unitWidth) x += unitWidth;
 
     track.style.transform = `translate3d(${x}px,0,0)`;
     requestAnimationFrame(tick);
   }
 
-  // Init sau khi font load xong để đo đúng
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
     measure();
     requestAnimationFrame(tick);
   });
 
-  // Re-measure khi resize
   window.addEventListener('resize', () => {
-    // debounce nhẹ
     clearTimeout(window.__rsz);
     window.__rsz = setTimeout(measure, 150);
   });
