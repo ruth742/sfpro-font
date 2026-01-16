@@ -20,7 +20,6 @@ html,body{
   overflow:hidden;
 }
 
-/* ===== TICKER GIỮA MÀN ===== */
 .ticker{
   position:fixed;
   left:50%;
@@ -31,7 +30,7 @@ html,body{
   height:72px;
   border-radius:18px;
 
-  /* TÍM ĐẬM + XUYÊN THẤU */
+  /* tím đậm + xuyên thấu */
   background:rgba(120, 90, 200, 0.45);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -41,31 +40,37 @@ html,body{
   pointer-events:none;
 }
 
-/* highlight nhẹ */
 .ticker::before{
   content:"";
   position:absolute;
   inset:0;
   border-radius:18px;
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.22),
-    rgba(255,255,255,0)
-  );
+  background:linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0));
 }
 
-/* ===== TRACK CHẠY ===== */
+/* viewport chứa track */
+.viewport{
+  position:relative;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+
+/* track chạy */
 .track{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
   display:flex;
   align-items:center;
-  height:100%;
   width:max-content;
   will-change:transform;
-  animation: marquee 14s linear infinite;
+  transform:translate3d(0,0,0);
 }
 
-/* ===== SEGMENT ===== */
-.segment{
+/* 1 item */
+.item{
   display:flex;
   align-items:center;
   height:100%;
@@ -76,9 +81,9 @@ html,body{
   font-weight:700;
   font-size:34px;
   letter-spacing:0.04em;
-  line-height:72px; /* căn giữa chữ theo chiều cao */
+  line-height:72px;
 
-  /* VÀNG GOLD */
+  /* vàng gold */
   background:linear-gradient(
     180deg,
     #fff9dc 0%,
@@ -94,33 +99,18 @@ html,body{
   -webkit-text-stroke:1.1px rgba(120,80,10,.55);
 }
 
-/* domain xanh lá */
+/* domain TRẮNG TINH */
 .domain{
-  color:#20c15a;
+  color:#ffffff;
   background:none;
-  -webkit-text-stroke:1px rgba(0,80,30,.55);
-}
-
-/* ===== MARQUEE KHÔNG GIẬT ===== */
-@keyframes marquee{
-  0%   { transform:translateX(0); }
-  100% { transform:translateX(-50%); }
+  -webkit-text-stroke: 0px transparent;
 }
 
 /* mobile */
 @media (max-width:900px){
-  .ticker{
-    height:60px;
-    border-radius:14px;
-  }
-  .ticker::before{
-    border-radius:14px;
-  }
-  .segment{
-    font-size:26px;
-    line-height:60px;
-    padding-right:80px;
-  }
+  .ticker{ height:60px; border-radius:14px; }
+  .ticker::before{ border-radius:14px; }
+  .item{ font-size:26px; line-height:60px; padding-right:80px; }
 }
 </style>
 </head>
@@ -128,18 +118,78 @@ html,body{
 <body>
 
 <div class="ticker">
-  <div class="track">
-    <!-- BẢN 1 -->
-    <div class="segment">
-      Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span>  •  ✅<span class="domain">GEMWIN.TOP</span>
-    </div>
-
-    <!-- BẢN 2 (COPY Y HỆT – ĐỂ CHẠY VÔ HẠN) -->
-    <div class="segment" aria-hidden="true">
-      Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span>  •  ✅<span class="domain">GEMWIN.TOP</span>
+  <div class="viewport">
+    <div class="track" id="track">
+      <div class="item" id="unit">
+        Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span>  •  ✅<span class="domain">GEMWIN.TOP</span>
+      </div>
+      <!-- JS sẽ clone thêm để chạy mượt -->
     </div>
   </div>
 </div>
+
+<script>
+(() => {
+  const track = document.getElementById('track');
+  const unit  = document.getElementById('unit');
+
+  // Tốc độ: px/giây (tăng = nhanh hơn)
+  const SPEED = 140;
+
+  function buildClones(){
+    // Xóa clone cũ
+    [...track.querySelectorAll('.clone')].forEach(n => n.remove());
+
+    // Clone đủ để phủ > 2 lần chiều rộng viewport (tránh hở)
+    const viewportWidth = track.parentElement.clientWidth;
+    let totalWidth = unit.getBoundingClientRect().width;
+
+    while (totalWidth < viewportWidth * 2) {
+      const c = unit.cloneNode(true);
+      c.classList.add('clone');
+      track.appendChild(c);
+      totalWidth += c.getBoundingClientRect().width;
+    }
+  }
+
+  let x = 0;
+  let last = performance.now();
+  let unitWidth = 0;
+
+  function measure(){
+    buildClones();
+    unitWidth = unit.getBoundingClientRect().width;
+    x = 0;
+    track.style.transform = 'translate3d(0,0,0)';
+  }
+
+  function tick(now){
+    const dt = (now - last) / 1000;
+    last = now;
+
+    x -= SPEED * dt;
+
+    // Khi đã trượt qua đúng 1 "unit", reset x (không giật)
+    if (x <= -unitWidth) x += unitWidth;
+
+    track.style.transform = `translate3d(${x}px,0,0)`;
+    requestAnimationFrame(tick);
+  }
+
+  // Init sau khi font load xong để đo đúng
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+    measure();
+    requestAnimationFrame(tick);
+  });
+
+  // Re-measure khi resize
+  window.addEventListener('resize', () => {
+    // debounce nhẹ
+    clearTimeout(window.__rsz);
+    window.__rsz = setTimeout(measure, 150);
+  });
+})();
+</script>
 
 </body>
 </html>
