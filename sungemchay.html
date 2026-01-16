@@ -20,15 +20,15 @@ html,body{
   overflow:hidden;
 }
 
-/* ===== TICKER ===== */
+/* ===== TICKER ở giữa ===== */
 .ticker{
   position:fixed;
   left:50%;
-  bottom:40px;                 /* chỉnh cao/thấp */
-  transform:translateX(-50%);
+  top:50%;
+  transform:translate(-50%,-50%);
   width:min(1600px, 95vw);
-  height:64px;
-  border-radius:16px;
+  height:72px;
+  border-radius:18px;
 
   /* nền xanh nhẹ + xuyên thấu */
   background:rgba(70, 170, 255, 0.22);
@@ -44,35 +44,31 @@ html,body{
   content:"";
   position:absolute;
   inset:0;
-  border-radius:16px;
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.18),
-    rgba(255,255,255,0)
-  );
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
 }
 
-/* track chạy */
+/* track chạy liên tục */
 .track{
   position:absolute;
   inset:0;
   display:flex;
   align-items:center;
+  gap:80px;
   will-change:transform;
-  animation: marquee 14s linear infinite;
+  animation: marquee 12s linear infinite; /* tốc độ chạy */
 }
 
-/* chữ */
-.msg{
-  display:inline-block;
+/* mỗi đoạn (nhân đôi để chạy vô hạn) */
+.segment{
+  display:flex;
+  align-items:center;
   white-space:nowrap;
-  padding-left:100%;
-  padding-right:100px;
 
   font-family:"SF Pro Display",system-ui;
   font-weight:700;
   font-size:34px;
-  letter-spacing:0.06em;
+  letter-spacing:0.04em;
 
   /* vàng gold */
   background:linear-gradient(
@@ -87,19 +83,27 @@ html,body{
   background-clip:text;
   color:transparent;
 
-  -webkit-text-stroke:1.2px rgba(120,80,10,.55);
+  -webkit-text-stroke: 1.1px rgba(120,80,10,.55);
 }
 
+/* phần domain màu xanh lá */
+.domain{
+  color:#20c15a;                 /* xanh lá */
+  -webkit-text-stroke: 1px rgba(0,80,30,.55);
+  background:none;
+}
+
+/* chạy mượt: 2 segment giống nhau -> dịch đúng 50% */
 @keyframes marquee{
   0%   { transform:translateX(0); }
-  100% { transform:translateX(-100%); }
+  100% { transform:translateX(-50%); }
 }
 
 /* mobile */
 @media (max-width:900px){
-  .ticker{ height:56px; bottom:28px; border-radius:14px; }
+  .ticker{ height:60px; border-radius:14px; }
   .ticker::before{ border-radius:14px; }
-  .msg{ font-size:26px; }
+  .segment{ font-size:26px; }
 }
 </style>
 </head>
@@ -108,9 +112,14 @@ html,body{
 
 <div class="ticker">
   <div class="track">
-    <div class="msg">
-      Trang web chính chủ: SUNWIN.SX  •  GEMWIN.TOP  •  
-      Trang web chính chủ: SUNWIN.SX  •  GEMWIN.TOP  •
+    <!-- segment 1 -->
+    <div class="segment">
+      Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span> và ✅<span class="domain">GEMWIN.TOP</span>
+    </div>
+
+    <!-- segment 2 (copy để chạy vô hạn) -->
+    <div class="segment" aria-hidden="true">
+      Trang web chính chủ ✅<span class="domain">SUNWIN.SX</span> và ✅<span class="domain">GEMWIN.TOP</span>
     </div>
   </div>
 </div>
