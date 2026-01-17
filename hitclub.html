@@ -11,22 +11,15 @@
   src:url("https://ruth742.github.io/sfpro-font/SFPRODISPLAYBOLD.OTF") format("opentype");
   font-weight:700;
 }
-html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  background:transparent;
-  overflow:hidden;
-}
-svg{ width:100%; height:100%; }
+html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden;}
+svg{width:100%;height:100%;}
 </style>
 </head>
 
 <body>
-
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <!-- Thân chữ: nâu đậm + ánh vàng kim nhẹ -->
+    <!-- Nâu đậm + ánh vàng kim nhẹ -->
     <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#201406"/>
       <stop offset="45%"  stop-color="#2b1c08"/>
@@ -42,18 +35,18 @@ svg{ width:100%; height:100%; }
       <stop offset="100%" stop-color="#e6a700"/>
     </linearGradient>
 
-    <!-- Glow gọn (ít blur) cho viền vàng kim chính -->
-    <filter id="cleanGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#ffd24a"/>
+    <!-- Glow gọn cho viền vàng kim -->
+    <filter id="cleanGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.1" flood-color="#ffd24a"/>
     </filter>
 
     <!-- Glow siêu nhẹ cho viền ngoài 0.2mm -->
-    <filter id="microGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="0.45" flood-color="#fff3b0"/>
+    <filter id="microGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="0.35" flood-color="#fff3b0"/>
     </filter>
   </defs>
 
-  <!-- Group chữ (nén chiều cao) -->
+  <!-- Nén chiều cao -->
   <g font-family="SF Pro Display, system-ui"
      font-weight="700"
      text-anchor="middle"
@@ -61,80 +54,64 @@ svg{ width:100%; height:100%; }
      stroke-linecap="round"
      transform="scale(1,0.88) translate(0,140)">
 
-    <!-- ===== HITCLUB.IN ===== -->
+    <!-- ================= HITCLUB.IN ================= -->
 
-    <!-- (A) VIỀN NGOÀI CÙNG: vàng kim siêu mảnh ~0.2mm -->
-    <text x="960" y="520"
-          font-size="205"
-          letter-spacing="0.13em"
-          fill="none"
-          stroke="#fff6c8"
-          stroke-width="1.1"
-          vector-effect="non-scaling-stroke"
-          filter="url(#microGlow)">
-      HITCLUB.IN
-    </text>
-
-    <!-- (B) VIỀN VÀNG KIM CHÍNH (nét, rõ màu) -->
-    <text x="960" y="520"
-          font-size="205"
-          letter-spacing="0.13em"
-          fill="none"
-          stroke="url(#goldMetal)"
-          stroke-width="5.5"
-          filter="url(#cleanGlow)">
-      HITCLUB.IN
-    </text>
-
-    <!-- (C) THÂN CHỮ (dày) -->
-    <text x="960" y="520"
-          font-size="205"
-          letter-spacing="0.13em"
+    <!-- (1) LỚP LÀM DÀY CHỮ (VẼ TRƯỚC) -->
+    <text x="960" y="520" font-size="205" letter-spacing="0.13em"
           fill="url(#brownGoldFill)"
-          stroke="#1b1106"
+          stroke="url(#brownGoldFill)"
           stroke-width="7.2"
           paint-order="stroke fill">
       HITCLUB.IN
     </text>
 
-    <!-- ===== GO88.PW ===== -->
-
-    <!-- (A) VIỀN NGOÀI CÙNG: vàng kim siêu mảnh ~0.2mm -->
-    <text x="960" y="759"
-          font-size="205"
-          letter-spacing="0.13em"
+    <!-- (2) VIỀN VÀNG KIM (NẰM NGOÀI - VẼ SAU NÊN CHẮC CHẮN THẤY) -->
+    <text x="960" y="520" font-size="205" letter-spacing="0.13em"
           fill="none"
-          stroke="#fff6c8"
-          stroke-width="1.1"
+          stroke="url(#goldMetal)"
+          stroke-width="4.2"
+          filter="url(#cleanGlow)">
+      HITCLUB.IN
+    </text>
+
+    <!-- (3) VIỀN NGOÀI SIÊU MẢNH ~0.2mm (VẼ CUỐI CÙNG) -->
+    <text x="960" y="520" font-size="205" letter-spacing="0.13em"
+          fill="none"
+          stroke="#fffbe0"
+          stroke-width="1.0"
           vector-effect="non-scaling-stroke"
           filter="url(#microGlow)">
+      HITCLUB.IN
+    </text>
+
+    <!-- ================= GO88.PW ================= -->
+
+    <text x="960" y="759" font-size="205" letter-spacing="0.13em"
+          fill="url(#brownGoldFill)"
+          stroke="url(#brownGoldFill)"
+          stroke-width="7.2"
+          paint-order="stroke fill">
       GO88.PW
     </text>
 
-    <!-- (B) VIỀN VÀNG KIM CHÍNH -->
-    <text x="960" y="759"
-          font-size="205"
-          letter-spacing="0.13em"
+    <text x="960" y="759" font-size="205" letter-spacing="0.13em"
           fill="none"
           stroke="url(#goldMetal)"
-          stroke-width="5.5"
+          stroke-width="4.2"
           filter="url(#cleanGlow)">
       GO88.PW
     </text>
 
-    <!-- (C) THÂN CHỮ (dày) -->
-    <text x="960" y="759"
-          font-size="205"
-          letter-spacing="0.13em"
-          fill="url(#brownGoldFill)"
-          stroke="#1b1106"
-          stroke-width="7.2"
-          paint-order="stroke fill">
+    <text x="960" y="759" font-size="205" letter-spacing="0.13em"
+          fill="none"
+          stroke="#fffbe0"
+          stroke-width="1.0"
+          vector-effect="non-scaling-stroke"
+          filter="url(#microGlow)">
       GO88.PW
     </text>
 
   </g>
 </svg>
-
 </body>
 </html>
