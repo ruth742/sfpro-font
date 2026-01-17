@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>HITCLUB LOGO OUTER OUTLINE</title>
+<title>HITCLUB LOGO THICK METAL</title>
 
 <style>
 @font-face{
@@ -20,16 +20,16 @@ svg{width:100%;height:100%;}
 
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
 <defs>
-  <!-- Thân chữ nâu đậm -->
- <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0%"   stop-color="#2a1c08"/>
-  <stop offset="35%"  stop-color="#3a260c"/>
-  <stop offset="65%"  stop-color="#5a3b12"/>
-  <stop offset="85%"  stop-color="#7a5320"/>
-  <stop offset="100%" stop-color="#9a6a2a"/>
-</linearGradient>
+  <!-- Thân chữ: nâu + gold nhẹ -->
+  <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#2a1c08"/>
+    <stop offset="35%"  stop-color="#3a260c"/>
+    <stop offset="65%"  stop-color="#5a3b12"/>
+    <stop offset="85%"  stop-color="#7a5320"/>
+    <stop offset="100%" stop-color="#9a6a2a"/>
+  </linearGradient>
 
-  <!-- Vàng kim -->
+  <!-- Vàng ánh kim -->
   <linearGradient id="goldMetal" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%" stop-color="#fff6c8"/>
     <stop offset="40%" stop-color="#ffe08a"/>
@@ -37,13 +37,13 @@ svg{width:100%;height:100%;}
     <stop offset="100%" stop-color="#e6a700"/>
   </linearGradient>
 
-  <!-- Glow gọn -->
+  <!-- Glow gọn cho viền vàng ngoài -->
   <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
-    <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#ffd24a"/>
+    <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="#ffd24a"/>
   </filter>
 </defs>
 
-<!-- Nén chiều cao chữ -->
+<!-- Nén chiều cao -->
 <g font-family="SF Pro Display, system-ui"
    font-weight="700"
    text-anchor="middle"
@@ -53,35 +53,34 @@ svg{width:100%;height:100%;}
 
   <!-- ========== HITCLUB.IN ========== -->
 
-  <!-- (A) VIỀN NGOÀI BAO QUANH (LỚN HƠN) -->
-<text x="960" y="520"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="none"
-      stroke="url(#goldMetal)"
-      stroke-width="10.8"
-      filter="url(#goldGlow)">
-  HITCLUB.IN
-</text>
+  <!-- (A) VIỀN NGOÀI VÀNG KIM (TO THEO TỶ LỆ) -->
+  <text x="960" y="520"
+        font-size="205"
+        letter-spacing="0.13em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="13.2"
+        filter="url(#goldGlow)">
+    HITCLUB.IN
+  </text>
 
-  <!-- (B) VIỀN VÀNG KIM CHÍNH (GIỮ NHƯ CŨ) -->
-<text x="960" y="759"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="none"
-      stroke="url(#goldMetal)"
-      stroke-width="10.8"
-      filter="url(#goldGlow)">
-  GO88.PW
-</text>
+  <!-- (B) VIỀN VÀNG KIM CHÍNH -->
+  <text x="960" y="520"
+        font-size="205"
+        letter-spacing="0.13em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="6.8">
+    HITCLUB.IN
+  </text>
 
-  <!-- (C) THÂN CHỮ DÀY -->
+  <!-- (C) THÂN CHỮ DÀY HƠN -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
         fill="url(#brownGoldFill)"
         stroke="#1b1106"
-        stroke-width="7.2"
+        stroke-width="9.0"
         paint-order="stroke fill">
     HITCLUB.IN
   </text>
@@ -93,7 +92,7 @@ svg{width:100%;height:100%;}
         letter-spacing="0.13em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="9.5"
+        stroke-width="13.2"
         filter="url(#goldGlow)">
     GO88.PW
   </text>
@@ -103,7 +102,7 @@ svg{width:100%;height:100%;}
         letter-spacing="0.13em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="5.5">
+        stroke-width="6.8">
     GO88.PW
   </text>
 
@@ -112,7 +111,7 @@ svg{width:100%;height:100%;}
         letter-spacing="0.13em"
         fill="url(#brownGoldFill)"
         stroke="#1b1106"
-        stroke-width="7.2"
+        stroke-width="9.0"
         paint-order="stroke fill">
     GO88.PW
   </text>
