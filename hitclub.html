@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>HITCLUB LOGO TRANSPARENT</title>
+<title>HITCLUB LOGO NEON</title>
 
 <style>
 @font-face{
@@ -16,7 +16,7 @@ html,body{
   margin:0;
   width:100%;
   height:100%;
-  background:transparent;   /* NỀN TRONG SUỐT */
+  background:transparent;
   overflow:hidden;
 }
 
@@ -31,50 +31,51 @@ svg{
 
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <!-- MÀU CHỮ NÂU ĐẬM -->
+    <!-- THÂN CHỮ NÂU ĐẬM -->
     <linearGradient id="darkFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"  stop-color="#2b1c04"/>
       <stop offset="55%" stop-color="#3a2506"/>
       <stop offset="100%" stop-color="#221600"/>
     </linearGradient>
 
-    <!-- VIỀN TRẮNG KEM (STICKER) -->
-    <linearGradient id="creamStroke" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#fff7ea"/>
-      <stop offset="100%" stop-color="#ffe6c8"/>
+    <!-- NEON GOLD -->
+    <linearGradient id="goldNeon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fff6b8"/>
+      <stop offset="50%" stop-color="#ffd24a"/>
+      <stop offset="100%" stop-color="#ffae00"/>
     </linearGradient>
 
-    <!-- BÓNG RẤT NHẸ ĐỂ NỔI CHỮ -->
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="10" dy="10" stdDeviation="1"
-        flood-color="rgba(255,255,255,0.45)"/>
+    <!-- GLOW NEON -->
+    <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#ffd24a"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6"   flood-color="#ffae00"/>
     </filter>
   </defs>
 
-  <!-- GROUP CĂN GIỮA MÀN -->
+  <!-- CĂN GIỮA -->
   <g font-family="SF Pro Display, system-ui"
      font-weight="700"
      text-anchor="middle"
      stroke-linejoin="round"
-     stroke-linecap="round"
-     filter="url(#softShadow)">
+     stroke-linecap="round">
 
     <!-- ===== HITCLUB.IN ===== -->
-    <!-- viền trắng -->
+    <!-- viền neon -->
     <text x="960" y="430"
           font-size="220"
           fill="none"
-          stroke="url(#creamStroke)"
-          stroke-width="34">
+          stroke="url(#goldNeon)"
+          stroke-width="8"
+          filter="url(#neonGlow)">
       HITCLUB.IN
     </text>
 
-    <!-- chữ nâu -->
+    <!-- thân chữ -->
     <text x="960" y="430"
           font-size="220"
           fill="url(#darkFill)"
           stroke="#1a1100"
-          stroke-width="7"
+          stroke-width="6"
           paint-order="stroke fill">
       HITCLUB.IN
     </text>
@@ -83,8 +84,9 @@ svg{
     <text x="960" y="720"
           font-size="220"
           fill="none"
-          stroke="url(#creamStroke)"
-          stroke-width="34">
+          stroke="url(#goldNeon)"
+          stroke-width="8"
+          filter="url(#neonGlow)">
       GO88.PW
     </text>
 
@@ -92,7 +94,7 @@ svg{
           font-size="220"
           fill="url(#darkFill)"
           stroke="#1a1100"
-          stroke-width="7"
+          stroke-width="6"
           paint-order="stroke fill">
       GO88.PW
     </text>
