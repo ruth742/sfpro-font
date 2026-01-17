@@ -18,7 +18,12 @@ html,body{
   background:transparent;
   overflow:hidden;
 }
-svg{width:100%;height:100%;}
+svg{
+  width:100%;
+  height:100%;
+  shape-rendering:geometricPrecision;
+  text-rendering:geometricPrecision;
+}
 </style>
 </head>
 
@@ -27,30 +32,23 @@ svg{width:100%;height:100%;}
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
 <defs>
 
-<!-- ===== GOLD ĐẬM HƠN 1 TONE – ÁNH KIM 4K ===== -->
-<linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0%"   stop-color="#f0d68a"/>
-  <stop offset="25%"  stop-color="#e1bb5a"/>
-  <stop offset="50%"  stop-color="#cfa341"/>
-  <stop offset="75%"  stop-color="#b98c2f"/>
-  <stop offset="100%" stop-color="#f0d68a"/>
-</linearGradient>
+  <!-- ===== THÂN CHỮ: GOLD ĐẬM HƠN 1 TONE – 4K ===== -->
+  <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#f0d68a"/>
+    <stop offset="25%"  stop-color="#e1bb5a"/>
+    <stop offset="50%"  stop-color="#cfa341"/>
+    <stop offset="75%"  stop-color="#b98c2f"/>
+    <stop offset="100%" stop-color="#f0d68a"/>
+  </linearGradient>
 
-  svg{
-  width:100%;
-  height:100%;
-  shape-rendering:geometricPrecision;
-  text-rendering:geometricPrecision;
-}
-
-
-  <!-- ===== VÀNG TRẮNG / GOLD ÁNH KIM ===== -->
+  <!-- ===== VIỀN WHITE-GOLD / CHAMPAGNE ===== -->
   <linearGradient id="goldMetal" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%"   stop-color="#ffffff"/>
-    <stop offset="25%"  stop-color="#fff6df"/>
-    <stop offset="50%"  stop-color="#f2dfb5"/>
-    <stop offset="75%"  stop-color="#e6c97a"/>
-    <stop offset="100%" stop-color="#fff6df"/>
+    <stop offset="20%"  stop-color="#fffdf6"/>
+    <stop offset="45%"  stop-color="#f6edd6"/>
+    <stop offset="55%"  stop-color="#efe1bf"/>
+    <stop offset="80%"  stop-color="#fff7e6"/>
+    <stop offset="100%" stop-color="#ffffff"/>
   </linearGradient>
 
   <!-- ===== GLOW VIỀN VÀNG (NỀN SÁNG) ===== -->
@@ -58,7 +56,7 @@ svg{width:100%;height:100%;}
     <feDropShadow dx="0" dy="0" stdDeviation="3.8" flood-color="#ffd24a"/>
   </filter>
 
-  <!-- ===== BÓNG ĐỔ ĐÈN CHIẾU (ĐẬM NHẸ) ===== -->
+  <!-- ===== BÓNG ĐỔ ĐÈN CHIẾU (MỀM – ĐẬM VỪA) ===== -->
   <filter id="softLampShadow" x="-30%" y="-30%" width="160%" height="160%">
     <feDropShadow
       dx="0"
@@ -79,34 +77,34 @@ svg{width:100%;height:100%;}
 
   <!-- ================= SUNWIN.SX ================= -->
 
-  <!-- Viền ngoài vàng kim -->
+  <!-- Viền ngoài -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="26.0"
+        stroke-width="26"
         filter="url(#goldGlow)">
     SUNWIN.SX
   </text>
 
-  <!-- Viền vàng kim chính -->
+  <!-- Viền ánh kim mỏng -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="14.0">
+        stroke-width="10">
     SUNWIN.SX
   </text>
 
-  <!-- Thân chữ + bóng đổ -->
+  <!-- Thân chữ -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
         fill="url(#brownGoldFill)"
         stroke="url(#brownGoldFill)"
-        stroke-width="17.0"
+        stroke-width="17"
         paint-order="stroke fill"
         filter="url(#softLampShadow)">
     SUNWIN.SX
@@ -115,25 +113,37 @@ svg{width:100%;height:100%;}
   <!-- ================= GEMWIN.TOP (NHỎ HƠN 1/5) ================= -->
 
   <!-- Viền ngoài -->
-<text x="960" y="739" font-size="164" letter-spacing="0.09em"
-      fill="none" stroke="url(#goldMetal)" stroke-width="26.0"
-      filter="url(#goldGlow)">
-  GEMWIN.TOP
-</text>
+  <text x="960" y="739"
+        font-size="164"
+        letter-spacing="0.09em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="26"
+        filter="url(#goldGlow)">
+    GEMWIN.TOP
+  </text>
 
-<!-- Viền chính -->
-<text x="960" y="739" font-size="164" letter-spacing="0.09em"
-      fill="none" stroke="url(#goldMetal)" stroke-width="14.0">
-  GEMWIN.TOP
-</text>
+  <!-- Viền ánh kim mỏng -->
+  <text x="960" y="739"
+        font-size="164"
+        letter-spacing="0.09em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="10">
+    GEMWIN.TOP
+  </text>
 
-<!-- Thân chữ + bóng -->
-<text x="960" y="739" font-size="164" letter-spacing="0.09em"
-      fill="url(#brownGoldFill)" stroke="url(#brownGoldFill)"
-      stroke-width="15.8" paint-order="stroke fill"
-      filter="url(#softLampShadow)">
-  GEMWIN.TOP
-</text>
+  <!-- Thân chữ -->
+  <text x="960" y="739"
+        font-size="164"
+        letter-spacing="0.09em"
+        fill="url(#brownGoldFill)"
+        stroke="url(#brownGoldFill)"
+        stroke-width="15.8"
+        paint-order="stroke fill"
+        filter="url(#softLampShadow)">
+    GEMWIN.TOP
+  </text>
 
 </g>
 </svg>
