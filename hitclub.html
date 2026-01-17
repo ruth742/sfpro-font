@@ -32,7 +32,7 @@ svg{
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
   <defs>
 
-    <!-- ===== NÂU ĐẬM + ÁNH VÀNG KIM NHẸ ===== -->
+    <!-- NÂU ĐẬM + ÁNH VÀNG KIM NHẸ -->
     <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#241707"/>
       <stop offset="45%"  stop-color="#2f1f0a"/>
@@ -40,14 +40,14 @@ svg{
       <stop offset="100%" stop-color="#5a3b12"/>
     </linearGradient>
 
-    <!-- ===== NEON GOLD MỎNG ===== -->
+    <!-- NEON GOLD -->
     <linearGradient id="goldNeon" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"  stop-color="#fff2b8"/>
       <stop offset="50%" stop-color="#ffd24a"/>
       <stop offset="100%" stop-color="#ffb000"/>
     </linearGradient>
 
-    <!-- ===== GLOW NEON NHẸ ===== -->
+    <!-- GLOW NEON NHẸ -->
     <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
       <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ffd24a"/>
       <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#ffb000"/>
@@ -55,49 +55,54 @@ svg{
 
   </defs>
 
-  <!-- ===== GROUP CHỮ ===== -->
+  <!-- GROUP CHỮ (NÉN CHIỀU CAO) -->
   <g font-family="SF Pro Display, system-ui"
      font-weight="700"
      text-anchor="middle"
      stroke-linejoin="round"
-     stroke-linecap="round">
+     stroke-linecap="round"
+     transform="scale(1,0.88) translate(0,140)">
 
     <!-- ===== HITCLUB.IN ===== -->
     <!-- viền neon -->
-    <text x="960" y="480"
-          font-size="210"
+    <text x="960" y="520"
+          font-size="205"
+          letter-spacing="0.18em"
           fill="none"
           stroke="url(#goldNeon)"
-          stroke-width="6.5"
+          stroke-width="6"
           filter="url(#neonGlow)">
       HITCLUB.IN
     </text>
 
     <!-- thân chữ -->
-    <text x="960" y="480"
-          font-size="210"
+    <text x="960" y="520"
+          font-size="205"
+          letter-spacing="0.18em"
           fill="url(#brownGoldFill)"
           stroke="#1c1206"
-          stroke-width="5"
+          stroke-width="4.8"
           paint-order="stroke fill">
       HITCLUB.IN
     </text>
 
     <!-- ===== GO88.PW ===== -->
-    <text x="960" y="660"
-          font-size="210"
+    <text x="960" y="700"
+          font-size="205"
+          letter-spacing="0.18em"
           fill="none"
           stroke="url(#goldNeon)"
-          stroke-width="6.5"
+          stroke-width="6"
           filter="url(#neonGlow)">
       GO88.PW
     </text>
 
-    <text x="960" y="660"
-          font-size="210"
+    <text x="960" y="700"
+          font-size="205"
+          letter-spacing="0.18em"
           fill="url(#brownGoldFill)"
           stroke="#1c1206"
-          stroke-width="5"
+          stroke-width="4.8"
           paint-order="stroke fill">
       GO88.PW
     </text>
