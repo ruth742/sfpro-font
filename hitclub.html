@@ -1,41 +1,114 @@
-<!-- HITCLUB.IN -->
-<text x="960" y="510"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="none"
-      stroke="url(#goldNeon)"
-      stroke-width="7"
-      filter="url(#neonGlow)">
-  HITCLUB.IN
-</text>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HITCLUB LOGO NEON FINAL</title>
 
-<text x="960" y="510"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="url(#brownGoldFill)"
-      stroke="#1c1206"
-      stroke-width="7.2"
-      paint-order="stroke fill">
-  HITCLUB.IN
-</text>
+<style>
+@font-face{
+  font-family:"SF Pro Display";
+  src:url("https://ruth742.github.io/sfpro-font/SFPRODISPLAYBOLD.OTF") format("opentype");
+  font-weight:700;
+}
 
-<!-- GO88.PW -->
-<text x="960" y="710"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="none"
-      stroke="url(#goldNeon)"
-      stroke-width="7"
-      filter="url(#neonGlow)">
-  GO88.PW
-</text>
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  background:transparent;
+  overflow:hidden;
+}
 
-<text x="960" y="710"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="url(#brownGoldFill)"
-      stroke="#1c1206"
-      stroke-width="7.2"
-      paint-order="stroke fill">
-  GO88.PW
-</text>
+svg{
+  width:100%;
+  height:100%;
+}
+</style>
+</head>
+
+<body>
+
+<svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
+  <defs>
+
+    <!-- ===== THÂN CHỮ: NÂU ĐẬM + ÁNH VÀNG KIM RẤT NHẸ ===== -->
+    <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1f1406"/>
+      <stop offset="45%"  stop-color="#2a1c08"/>
+      <stop offset="75%"  stop-color="#3a270d"/>
+      <stop offset="100%" stop-color="#5a3b12"/>
+    </linearGradient>
+
+    <!-- ===== VIỀN NEON GOLD ===== -->
+    <linearGradient id="goldNeon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fff2b8"/>
+      <stop offset="50%" stop-color="#ffd24a"/>
+      <stop offset="100%" stop-color="#ffb000"/>
+    </linearGradient>
+
+    <!-- ===== GLOW NEON NHẸ ===== -->
+    <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#ffd24a"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#ffb000"/>
+    </filter>
+
+  </defs>
+
+  <!-- ===== GROUP CHỮ (NÉN CHIỀU CAO) ===== -->
+  <g font-family="SF Pro Display, system-ui"
+     font-weight="700"
+     text-anchor="middle"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     transform="scale(1,0.88) translate(0,140)">
+
+    <!-- ===== HITCLUB.IN ===== -->
+    <!-- viền neon -->
+    <text x="960" y="520"
+          font-size="205"
+          letter-spacing="0.13em"
+          fill="none"
+          stroke="url(#goldNeon)"
+          stroke-width="7"
+          filter="url(#neonGlow)">
+      HITCLUB.IN
+    </text>
+
+    <!-- thân chữ -->
+    <text x="960" y="520"
+          font-size="205"
+          letter-spacing="0.13em"
+          fill="url(#brownGoldFill)"
+          stroke="#1c1206"
+          stroke-width="7.2"
+          paint-order="stroke fill">
+      HITCLUB.IN
+    </text>
+
+    <!-- ===== GO88.PW ===== -->
+    <text x="960" y="720"
+          font-size="205"
+          letter-spacing="0.13em"
+          fill="none"
+          stroke="url(#goldNeon)"
+          stroke-width="7"
+          filter="url(#neonGlow)">
+      GO88.PW
+    </text>
+
+    <text x="960" y="720"
+          font-size="205"
+          letter-spacing="0.13em"
+          fill="url(#brownGoldFill)"
+          stroke="#1c1206"
+          stroke-width="7.2"
+          paint-order="stroke fill">
+      GO88.PW
+    </text>
+
+  </g>
+</svg>
+
+</body>
+</html>
