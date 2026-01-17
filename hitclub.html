@@ -26,29 +26,40 @@ svg{width:100%;height:100%;}
 
 <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet">
 <defs>
-  <!-- THÂN CHỮ: NÂU + GOLD NHẸ -->
-<linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0%"   stop-color="#2f1e0a"/>
-  <stop offset="50%"  stop-color="#5b3b16"/>
-  <stop offset="100%" stop-color="#2f1e0a"/>
-</linearGradient>
 
-  <!-- VÀNG ÁNH KIM -->
-<linearGradient id="goldMetal" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0%"   stop-color="#ffffff"/>
-  <stop offset="25%"  stop-color="#fff6df"/>
-  <stop offset="50%"  stop-color="#f2dfb5"/>
-  <stop offset="75%"  stop-color="#e6c97a"/>
-  <stop offset="100%" stop-color="#fff6df"/>
-</linearGradient>
+  <!-- ===== THÂN CHỮ: NÂU + GOLD NHẸ (ĐỀU MÀU) ===== -->
+  <linearGradient id="brownGoldFill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#2f1e0a"/>
+    <stop offset="50%"  stop-color="#5b3b16"/>
+    <stop offset="100%" stop-color="#2f1e0a"/>
+  </linearGradient>
 
-  <!-- GLOW CHO NỀN SÁNG -->
+  <!-- ===== VÀNG TRẮNG / GOLD ÁNH KIM ===== -->
+  <linearGradient id="goldMetal" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#ffffff"/>
+    <stop offset="25%"  stop-color="#fff6df"/>
+    <stop offset="50%"  stop-color="#f2dfb5"/>
+    <stop offset="75%"  stop-color="#e6c97a"/>
+    <stop offset="100%" stop-color="#fff6df"/>
+  </linearGradient>
+
+  <!-- ===== GLOW VIỀN VÀNG (NỀN SÁNG) ===== -->
   <filter id="goldGlow" x="-45%" y="-45%" width="190%" height="190%">
     <feDropShadow dx="0" dy="0" stdDeviation="3.8" flood-color="#ffd24a"/>
   </filter>
+
+  <!-- ===== BÓNG ĐỔ ĐÈN CHIẾU RẤT NHẸ ===== -->
+  <filter id="softLampShadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow
+      dx="0"
+      dy="6"
+      stdDeviation="6"
+      flood-color="rgba(0,0,0,0.22)"/>
+  </filter>
+
 </defs>
 
-<!-- NÉN CHIỀU CAO CHỮ -->
+<!-- ===== NÉN CHIỀU CAO CHỮ ===== -->
 <g font-family="SF Pro Display, system-ui"
    font-weight="700"
    text-anchor="middle"
@@ -56,9 +67,9 @@ svg{width:100%;height:100%;}
    stroke-linecap="round"
    transform="scale(1,0.88) translate(0,140)">
 
-  <!-- ========== HITCLUB.IN ========== -->
+  <!-- ================= HITCLUB.IN ================= -->
 
-  <!-- VIỀN NGOÀI VÀNG KIM (RẤT TO) -->
+  <!-- Viền ngoài vàng kim -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
@@ -69,7 +80,7 @@ svg{width:100%;height:100%;}
     HITCLUB.IN
   </text>
 
-  <!-- VIỀN VÀNG KIM CHÍNH -->
+  <!-- Viền vàng kim chính -->
   <text x="960" y="520"
         font-size="205"
         letter-spacing="0.13em"
@@ -79,50 +90,52 @@ svg{width:100%;height:100%;}
     HITCLUB.IN
   </text>
 
-  <!-- THÂN CHỮ SIÊU DÀY -->
-<text x="960" y="520"
-      font-size="205"
-      letter-spacing="0.13em"
-      fill="url(#brownGoldFill)"
-      stroke="url(#brownGoldFill)"
-      stroke-width="17.0"
-      paint-order="stroke fill">
-  HITCLUB.IN
-</text>
+  <!-- Thân chữ + bóng đổ đèn chiếu -->
+  <text x="960" y="520"
+        font-size="205"
+        letter-spacing="0.13em"
+        fill="url(#brownGoldFill)"
+        stroke="url(#brownGoldFill)"
+        stroke-width="17.0"
+        paint-order="stroke fill"
+        filter="url(#softLampShadow)">
+    HITCLUB.IN
+  </text>
 
-  <!-- ========== GO88.PW ========== -->
+  <!-- ================= GO88.PW ================= -->
 
-  <!-- GO88.PW – viền ngoài -->
-<text x="960" y="759"
-      font-size="205"
-      letter-spacing="0.09em"
-      fill="none"
-      stroke="url(#goldMetal)"
-      stroke-width="26.0"
-      filter="url(#goldGlow)">
-  GO88.PW
-</text>
+  <!-- Viền ngoài vàng kim -->
+  <text x="960" y="759"
+        font-size="205"
+        letter-spacing="0.09em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="26.0"
+        filter="url(#goldGlow)">
+    GO88.PW
+  </text>
 
-<!-- GO88.PW – viền vàng chính -->
-<text x="960" y="759"
-      font-size="205"
-      letter-spacing="0.09em"
-      fill="none"
-      stroke="url(#goldMetal)"
-      stroke-width="14.0">
-  GO88.PW
-</text>
+  <!-- Viền vàng kim chính -->
+  <text x="960" y="759"
+        font-size="205"
+        letter-spacing="0.09em"
+        fill="none"
+        stroke="url(#goldMetal)"
+        stroke-width="14.0">
+    GO88.PW
+  </text>
 
-<!-- GO88.PW – thân chữ -->
-<text x="960" y="759"
-      font-size="205"
-      letter-spacing="0.09em"
-      fill="url(#brownGoldFill)"
-      stroke="url(#brownGoldFill)"
-      stroke-width="17.0"
-      paint-order="stroke fill">
-  GO88.PW
-</text>
+  <!-- Thân chữ + bóng đổ đèn chiếu -->
+  <text x="960" y="759"
+        font-size="205"
+        letter-spacing="0.09em"
+        fill="url(#brownGoldFill)"
+        stroke="url(#brownGoldFill)"
+        stroke-width="15.8"
+        paint-order="stroke fill"
+        filter="url(#softLampShadow)">
+    GO88.PW
+  </text>
 
 </g>
 </svg>
