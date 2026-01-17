@@ -41,6 +41,13 @@ svg{
     <stop offset="100%" stop-color="#f0d68a"/>
   </linearGradient>
 
+  <!-- ===== MÉP TRONG ĐẬM HƠN 2 TONE ===== -->
+  <linearGradient id="goldInnerEdge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#b7892a"/>
+    <stop offset="50%"  stop-color="#a3741f"/>
+    <stop offset="100%" stop-color="#b7892a"/>
+  </linearGradient>
+
   <!-- ===== VIỀN WHITE-GOLD / CHAMPAGNE ===== -->
   <linearGradient id="goldMetal" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%"   stop-color="#ffffff"/>
@@ -58,11 +65,7 @@ svg{
 
   <!-- ===== BÓNG ĐỔ ĐÈN CHIẾU (MỀM – ĐẬM VỪA) ===== -->
   <filter id="softLampShadow" x="-30%" y="-30%" width="160%" height="160%">
-    <feDropShadow
-      dx="0"
-      dy="8"
-      stdDeviation="7"
-      flood-color="rgba(0,0,0,0.42)"/>
+    <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="rgba(0,0,0,0.42)"/>
   </filter>
 
 </defs>
@@ -84,9 +87,7 @@ svg{
         fill="none"
         stroke="url(#goldMetal)"
         stroke-width="26"
-        filter="url(#goldGlow)">
-    SUNWIN.SX
-  </text>
+        filter="url(#goldGlow)">SUNWIN.SX</text>
 
   <!-- Viền ánh kim mỏng -->
   <text x="960" y="520"
@@ -94,9 +95,15 @@ svg{
         letter-spacing="0.13em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="10">
-    SUNWIN.SX
-  </text>
+        stroke-width="10">SUNWIN.SX</text>
+
+  <!-- Mép trong đậm (2 tone) -->
+  <text x="960" y="520"
+        font-size="205"
+        letter-spacing="0.13em"
+        fill="none"
+        stroke="url(#goldInnerEdge)"
+        stroke-width="13">SUNWIN.SX</text>
 
   <!-- Thân chữ -->
   <text x="960" y="520"
@@ -106,9 +113,7 @@ svg{
         stroke="url(#brownGoldFill)"
         stroke-width="17"
         paint-order="stroke fill"
-        filter="url(#softLampShadow)">
-    SUNWIN.SX
-  </text>
+        filter="url(#softLampShadow)">SUNWIN.SX</text>
 
   <!-- ================= GEMWIN.TOP (NHỎ HƠN 1/5) ================= -->
 
@@ -119,9 +124,7 @@ svg{
         fill="none"
         stroke="url(#goldMetal)"
         stroke-width="26"
-        filter="url(#goldGlow)">
-    GEMWIN.TOP
-  </text>
+        filter="url(#goldGlow)">GEMWIN.TOP</text>
 
   <!-- Viền ánh kim mỏng -->
   <text x="960" y="739"
@@ -129,9 +132,15 @@ svg{
         letter-spacing="0.09em"
         fill="none"
         stroke="url(#goldMetal)"
-        stroke-width="10">
-    GEMWIN.TOP
-  </text>
+        stroke-width="10">GEMWIN.TOP</text>
+
+  <!-- Mép trong đậm (2 tone) -->
+  <text x="960" y="739"
+        font-size="164"
+        letter-spacing="0.09em"
+        fill="none"
+        stroke="url(#goldInnerEdge)"
+        stroke-width="12">GEMWIN.TOP</text>
 
   <!-- Thân chữ -->
   <text x="960" y="739"
@@ -141,9 +150,7 @@ svg{
         stroke="url(#brownGoldFill)"
         stroke-width="15.8"
         paint-order="stroke fill"
-        filter="url(#softLampShadow)">
-    GEMWIN.TOP
-  </text>
+        filter="url(#softLampShadow)">GEMWIN.TOP</text>
 
 </g>
 </svg>
