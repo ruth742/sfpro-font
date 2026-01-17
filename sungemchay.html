@@ -36,15 +36,19 @@ html,body{
   height:var(--ticker-h);
   border-radius:22px;
 
-  /* tím đậm + xuyên thấu */
-background: #6b4fd8; /* tím đặc */
-backdrop-filter: none;
--webkit-backdrop-filter: none;
+  /* TÍM ĐẬM – KHÔNG XUYÊN */
+  background: linear-gradient(
+    180deg,
+    #3a2474 0%,
+    #2c1a5e 55%,
+    #1f123f 100%
+  );
 
-  border:1px solid rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.28);
   overflow:hidden;
   pointer-events:none;
 }
+
 
 .ticker::before{
   content:"";
